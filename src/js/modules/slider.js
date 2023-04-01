@@ -15,6 +15,20 @@ export default class Slider {
         if (n < 1) {
             this.slideIndex = this.slidesLength;
         }
+    
+        try {
+            this.hanson.style.opacity = '0';
+        
+            if (n === 3) {
+                this.hanson.classList.add('animated');
+                setTimeout(() => {
+                    this.hanson.classList.add('slideInUp');
+                    this.hanson.style.opacity = '1';
+                }, 3000);
+            } else {
+                this.hanson.classList.remove('slideInUp');
+            }
+        } catch (error) {}
         
         this.slides.forEach(slide => {
             slide.style.display = 'none';
@@ -27,6 +41,10 @@ export default class Slider {
     }
     
     render() {
+        try {
+            this.hanson = document.querySelector('.hanson');
+        } catch (error) {}
+        
         this.buttons.forEach(btn => {
             btn.addEventListener('click', () => {
                 this.changeSlides(1);
