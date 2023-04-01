@@ -1,10 +1,8 @@
-export default class Slider {
-    constructor(page, triggers) {
-        this.page = document.querySelector(page);
-        this.slides = Array.from(this.page.children);
-        this.slidesLength = this.slides.length;
-        this.buttons = document.querySelectorAll(triggers);
-        this.slideIndex = 1;
+import Slider from "./slider.js";
+
+export default class SliderMain extends Slider {
+    constructor(triggers) {
+        super(triggers);
     }
     
     showSlides(n) {
@@ -15,10 +13,10 @@ export default class Slider {
         if (n < 1) {
             this.slideIndex = this.slidesLength;
         }
-    
+        
         try {
             this.hanson.style.opacity = '0';
-        
+            
             if (n === 3) {
                 this.hanson.classList.add('animated');
                 setTimeout(() => {
@@ -30,10 +28,10 @@ export default class Slider {
             }
         } catch (error) {}
         
-        this.slides.forEach(slide => {
+        for (let slide of this.slides) {
             slide.style.display = 'none';
             this.slides[this.slideIndex - 1].style.display = 'block';
-        });
+        }
     }
     
     changeSlides(n) {
