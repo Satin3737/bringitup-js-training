@@ -1,0 +1,14 @@
+{
+    "name": "bringitup",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build -w --emptyOutDir",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "vite": "^4.2.0"
+    }
+}
