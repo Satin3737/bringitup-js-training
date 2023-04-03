@@ -2,6 +2,7 @@ import SliderMain from "./modules/slider/slider-main.js";
 import VideoPlayer from "./modules/videoPlayer.js";
 import SliderMini from "./modules/slider/slider-mini.js";
 import Difference from "./modules/difference.js";
+import Forms from "./modules/forms.js";
 
 window.addEventListener('DOMContentLoaded', () => {
     
@@ -43,4 +44,6 @@ window.addEventListener('DOMContentLoaded', () => {
         '.officernew',
         '.officer__card-item'
     ).init();
+    
+    new Forms('.form').init();
 });
