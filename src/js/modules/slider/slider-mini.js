@@ -6,7 +6,6 @@ export default class SliderMini extends Slider {
     }
     
     decorSliders() {
-    
         for (let slide of this.slides) {
             slide.classList.remove(this.activeClass);
             if (this.animate) {
@@ -29,7 +28,6 @@ export default class SliderMini extends Slider {
         for (let item of this.slides) {
             if (item.type === 'button') {
                 btnIndexes.push(i);
-                console.log('button', i);
             }
             i++;
         }
@@ -40,11 +38,11 @@ export default class SliderMini extends Slider {
     }
     
     bindTriggers() {
-        this.next.addEventListener('click', () => {
+        this.next.forEach(btn => btn.addEventListener('click', () => {
             this.nextSlide();
-        });
+        }));
         
-        this.prev.addEventListener('click', () => {
+        this.prev.forEach(btn => btn.addEventListener('click', () => {
             for (let i = this.slidesLength - 1; i > 0; i--) {
                 if (this.slides[i].type !== 'button') {
                     let active = this.slides[i];
@@ -53,7 +51,7 @@ export default class SliderMini extends Slider {
                     break;
                 }
             }
-        });
+        }));
     }
     
     init() {

@@ -7,11 +7,11 @@ export default class Slider {
         activeClass = '',
         animate = false,
         autoplay = false
-    } = {}) {
+    }) {
         this.container = document.querySelector(container);
         this.buttons = document.querySelectorAll(triggers);
-        this.prev = document.querySelector(prev);
-        this.next = document.querySelector(next);
+        this.prev = document.querySelectorAll(prev);
+        this.next = document.querySelectorAll(next);
         this.slides = this.container.children;
         this.slidesLength = this.slides.length;
         this.slideIndex = 1;

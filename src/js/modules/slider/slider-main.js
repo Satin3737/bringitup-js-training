@@ -38,11 +38,7 @@ export default class SliderMain extends Slider {
         this.showSlides(this.slideIndex += n);
     }
     
-    render() {
-        try {
-            this.hanson = document.querySelector('.hanson');
-        } catch (error) {}
-        
+    bindTriggers() {
         this.buttons.forEach(btn => {
             btn.addEventListener('click', () => {
                 this.changeSlides(1);
@@ -55,6 +51,27 @@ export default class SliderMain extends Slider {
             });
         });
         
+        this.prev.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.changeSlides(-1);
+            });
+        });
+        
+        this.next.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.changeSlides(1);
+            });
+        });
+    }
+    
+    render() {
+        try {
+            this.hanson = document.querySelector('.hanson');
+        } catch (error) {}
+        
+        this.bindTriggers();
         this.showSlides(this.slideIndex);
     }
 }
