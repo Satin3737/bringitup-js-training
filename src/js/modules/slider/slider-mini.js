@@ -54,6 +54,14 @@ export default class SliderMini extends Slider {
         }));
     }
     
+    sliderPlay() {
+        if (this.autoplay) {
+            setInterval(() => {
+                this.nextSlide();
+            }, 3000);
+        }
+    }
+    
     init() {
         this.container.style.cssText = `
             display: flex;
@@ -63,5 +71,6 @@ export default class SliderMini extends Slider {
         `
         this.bindTriggers();
         this.decorSliders();
+        this.sliderPlay();
     }
 }

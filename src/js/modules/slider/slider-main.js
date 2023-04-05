@@ -48,6 +48,7 @@ export default class SliderMain extends Slider {
                 e.preventDefault();
                 this.slideIndex = 1;
                 this.showSlides(this.slideIndex);
+                console.log(btn)
             });
         });
         
