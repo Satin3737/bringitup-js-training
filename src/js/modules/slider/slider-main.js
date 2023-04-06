@@ -43,12 +43,11 @@ export default class SliderMain extends Slider {
             btn.addEventListener('click', () => {
                 this.changeSlides(1);
             });
-            
+
             btn.parentNode.previousElementSibling.addEventListener('click', (e) => {
                 e.preventDefault();
                 this.slideIndex = 1;
                 this.showSlides(this.slideIndex);
-                console.log(btn)
             });
         });
         
